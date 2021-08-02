@@ -1,0 +1,18 @@
+spring.cloud.stream:
+   function:
+      defination: domainService
+   bindings:
+      domainProcesor-in-0:
+         destination:active.web-domains
+         
+kafka:
+    bindings:
+         domainProcesor-in-0:
+            consumer:
+               configration:
+                  value:
+                     deserializer: org.springfaramwork.kafka.support.serializer.JsonDeserializer
+    binder:
+           brokers:
+             -localhost:9091
+             -localhost:9092
