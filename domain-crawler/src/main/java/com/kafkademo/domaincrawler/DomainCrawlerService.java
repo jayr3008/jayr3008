@@ -20,13 +20,13 @@ public class DomainCrawlerService {
 	}
 	public void crawl(String name) {
 	
-	//Mono<DomainList> domainlistMono = WebClient.create()
-	//.get()
-	//.uri("https://api.domainsdb.info/v1/domains/search?domain="+name+"&zone=com")
-	//.accept(MediaType.APPLICATION_JSON)
-	//.retrieve()
-	//.bodyToMono(DomainList.class);
-	/*
+	Mono<DomainList> domainlistMono = WebClient.create()
+	.get()
+	.uri("https://api.domainsdb.info/v1/domains/search?domain="+name+"&zone=com")
+	.accept(MediaType.APPLICATION_JSON)
+	.retrieve()
+	.bodyToMono(DomainList.class);
+	
 	domainlistMono.subscribe(domainList -> {
 		domainList.domains
 		.forEach(domain->{
@@ -34,7 +34,7 @@ public class DomainCrawlerService {
 			System.out.println("Domain Message : "+ domain.getDomain());
 			kafkaTemplet.send(KAFKA_TOPIC,domain);
 		});
-	});*/
+	});
 		
 	
 	}
